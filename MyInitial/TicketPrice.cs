@@ -9,16 +9,18 @@ namespace Ticketing
     {
         private int section;
         private int quantity;
-        private bool discount;
+        private int discount;
         private decimal amountDue;
         private decimal mPrice;
-        private decimal discountb;
+        /// private decimal discountb;
 
         const decimal mdecBalcony = 35.5m;
         const decimal mdecGeneral = 28.75m;
         const decimal mdecBox = 62.0m;
         const decimal mdecBack = 15.0m;
-        /// const decimal mdecDiscount = 5.0m;
+        const decimal mdecDiscounts = 5.0m;
+        const decimal mdecDiscountc = 10.0m;
+
 
         /// decimal changedDiscount 
 
@@ -36,7 +38,7 @@ namespace Ticketing
             set { quantity = value; }
         }
 
-        private bool Discount
+        private int Discount
         {
             get { return discount; }
             set { discount = value; }
@@ -48,28 +50,26 @@ namespace Ticketing
             set { amountDue = value; }
         }
 
-        private decimal DiscountB
-        {
-            get { return discountb; }
-            set { discountb = value; }
-        }
+        //private decimal DiscountB
+        //{
+        //    get { return discountb; }
+        //    set { discountb = value; }
+        //}
 
 
 
         // Constructor for TcicketPrice
-        public TicketPrice(int section, int quantity, bool discount, decimal discountb)
+        public TicketPrice(int section, int quantity, int discount)
         {
             Section = section;
             Quantity = quantity;
             Discount = discount;
             AmountDue = amountDue;
-            DiscountB = discountb;
+            /// DiscountB = discountb;
         }
-
 
         public void calculatePrice()
         {
-
             switch (section)
             {
                 case 1:
@@ -85,8 +85,11 @@ namespace Ticketing
                     mPrice = mdecBack;
                     break;
             }
-            if (discount)
-            { mPrice -= discountb; }
+            if (discount == 1)
+            { mPrice -= mdecDiscounts; }
+            else if (discount == 2)
+            { mPrice -= mdecDiscountc; }
+
 
 
             AmountDue = mPrice * quantity;
