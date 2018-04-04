@@ -17,7 +17,8 @@ namespace Ticketing
         const decimal mdecBalcony = 35.5m;
         const decimal mdecGeneral = 28.75m;
         const decimal mdecBox = 62.0m;
-       /// const decimal mdecDiscount = 5.0m;
+        const decimal mdecBack = 15.0m;
+        /// const decimal mdecDiscount = 5.0m;
 
         /// decimal changedDiscount 
 
@@ -29,19 +30,19 @@ namespace Ticketing
             set { section = value; }
         }
 
-         private int Quantity
+        private int Quantity
         {
             get { return quantity; }
             set { quantity = value; }
         }
 
-         private bool Discount
+        private bool Discount
         {
             get { return discount; }
             set { discount = value; }
         }
 
-         public decimal AmountDue
+        public decimal AmountDue
         {
             get { return amountDue; }
             set { amountDue = value; }
@@ -52,41 +53,44 @@ namespace Ticketing
             get { return discountb; }
             set { discountb = value; }
         }
-   
-        
+
+
 
         // Constructor for TcicketPrice
         public TicketPrice(int section, int quantity, bool discount, decimal discountb)
-    {
-        Section = section;
-        Quantity = quantity;
-        Discount = discount;
-        AmountDue = amountDue;
+        {
+            Section = section;
+            Quantity = quantity;
+            Discount = discount;
+            AmountDue = amountDue;
             DiscountB = discountb;
-    }
+        }
 
-       
-     public void calculatePrice()
-     {
 
-         switch (section)
-         {
-             case 1:
-                 mPrice = mdecBalcony;
-                 break;
-             case 2:
-                 mPrice = mdecGeneral;
-                 break;
-             case 3:
-                 mPrice = mdecBox;
-                 break;
-         }
-         if (discount )
-         { mPrice -= discountb; }
+        public void calculatePrice()
+        {
 
-         
-         AmountDue = mPrice * quantity;
+            switch (section)
+            {
+                case 1:
+                    mPrice = mdecBalcony;
+                    break;
+                case 2:
+                    mPrice = mdecGeneral;
+                    break;
+                case 3:
+                    mPrice = mdecBox;
+                    break;
+                case 4:
+                    mPrice = mdecBack;
+                    break;
+            }
+            if (discount)
+            { mPrice -= discountb; }
 
-     }
+
+            AmountDue = mPrice * quantity;
+
+        }
     }
 }

@@ -49,6 +49,9 @@ namespace Ticketing
             if (radBox.Checked)
                 { mSection = 3; }
 
+            if (radBack.Checked)
+            { mSection = 4; }
+
             discountb = decimal.Parse(txtDiscount.Text);
             
 

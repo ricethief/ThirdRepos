@@ -37,6 +37,7 @@
             this.radGeneral = new System.Windows.Forms.RadioButton();
             this.radBox = new System.Windows.Forms.RadioButton();
             this.grpSection = new System.Windows.Forms.GroupBox();
+            this.radBack = new System.Windows.Forms.RadioButton();
             this.cmdCalculate = new System.Windows.Forms.Button();
             this.txtDiscount = new System.Windows.Forms.TextBox();
             this.DiscountTextBox = new System.Windows.Forms.Label();
@@ -85,7 +86,6 @@
             this.chkDiscount.TabIndex = 5;
             this.chkDiscount.Text = "Senior / Student";
             this.chkDiscount.UseVisualStyleBackColor = true;
-  
             this.chkDiscount.CheckStateChanged += new System.EventHandler(this.chkDiscount_CheckStateChanged);
             // 
             // radBalcony
@@ -122,6 +122,7 @@
             // 
             // grpSection
             // 
+            this.grpSection.Controls.Add(this.radBack);
             this.grpSection.Controls.Add(this.radBox);
             this.grpSection.Controls.Add(this.radGeneral);
             this.grpSection.Controls.Add(this.radBalcony);
@@ -131,6 +132,17 @@
             this.grpSection.TabIndex = 9;
             this.grpSection.TabStop = false;
             this.grpSection.Text = "Section";
+            // 
+            // radBack
+            // 
+            this.radBack.AutoSize = true;
+            this.radBack.Location = new System.Drawing.Point(26, 88);
+            this.radBack.Name = "radBack";
+            this.radBack.Size = new System.Drawing.Size(73, 17);
+            this.radBack.TabIndex = 9;
+            this.radBack.TabStop = true;
+            this.radBack.Text = "Back Stall";
+            this.radBack.UseVisualStyleBackColor = true;
             // 
             // cmdCalculate
             // 
@@ -198,6 +210,7 @@
         private System.Windows.Forms.Button cmdCalculate;
         private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.Label DiscountTextBox;
+        private System.Windows.Forms.RadioButton radBack;
     }
 }
 
